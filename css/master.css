@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@font-face{font-family:baron neue;src:url("../fonts/Baron Neue Black-BaronNeuewebfont.ttf")}
+*, *:before, *:after {
+    border: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Montserrat','open sans', sans-serif;
+    font-style: normal;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+div.sound{
+  background-color: #f1f1f1;
+  height: 0px;
+  width: 1rem;
+  margin: 1rem;
+  border-radius: 0 0 3px 3px;
+}
+.container{
+  position: absolute;
+  left: 50%;
+  bottom: -1rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  width: 15rem;
+  height: calc(50% - 4rem);
+  transform: translateX(-50%) rotate(180deg);
+}
+body{
+  min-height: 100vh;
+  background-color: #f1f1f1;
+  overflow: hidden;
+}
+main{
+  width: calc(100vw - 4rem);
+  height: calc(100vh - 4rem);
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #475B5A;
+}
+.textBox{
+  /*text-shadow: 1px 1px 5px rgba(0,0,0,.1);*/
+  text-align: center;
+  color: #f1f1f1;
+  max-width: 30rem;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(-1rem);
+  animation: fadeIn .75s ease forwards;
+}
+.textBox:before{
+  content: "Click to Play/Pause";
+  display: block;
+  transition: .3s all ease;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  transform: translateY(-1rem);
+}
+.play .textBox:before{
+  opacity: 0;
+  transform: translateY(0);
+}
+.textBox h1{
+  font-size: 4rem;
+  font-family: 'baron neue';
+  margin-bottom: -.75rem;
+}
+.textBox h2{
+  font-size: 1.25rem;
+  font-weight: lighter;
+  letter-spacing: .1em;
+}
+a.license{
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  padding: .5rem .75rem;
+  background-color: #f1f1f1;
+  color: #331E38;
+  font-family: 'baron neue';
+}
+a.license span{
+  font-family: 'baron neue';
+  text-transform: uppercase;
+}
+
+@keyframes fadeIn {
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media (max-width:500px) {
+  .container div:first-child,
+  .container div:last-child{
+    display: none;
+    visibility: hidden;
+  }
+  main:before{
+    content: "Not Optimized for Mobile";
+    padding: .5rem;
+    color: #2e2e2e;
+    width: 100%;
+    text-align: center;
+    top: -2rem;
+  }
+}
